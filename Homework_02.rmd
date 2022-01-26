@@ -1,5 +1,5 @@
 ---
-title: "Home Page"
+title: "Homework 02"
 output: html_document
 ---
 
@@ -7,8 +7,4 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## This is David's Home Page
-
-### Homework
-
-[Homework 2](Homework_02.html)
+This is a little bit that is being added to the seconds homework
