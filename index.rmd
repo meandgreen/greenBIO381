@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## This is David's Home Page
+## David's Homework Page for BIO381
 
 ### Homework
 
