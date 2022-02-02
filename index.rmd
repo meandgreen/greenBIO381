@@ -1,14 +1,23 @@
 ---
-title: "Home Page"
-output: html_document
+title: "Home"
+output:
+  prettydoc::html_pretty:
+    theme: tactile
+    highlight: github
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## David's Homework Page for BIO381
+## David's Page For BIO381
+
+---
 
 ### Homework
 
 [Homework 2](Homework_02.html)
+
+[Homework 3](Homework_03.html)
+
+---
