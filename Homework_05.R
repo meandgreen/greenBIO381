@@ -1,0 +1,71 @@
+# David C. Green
+# 02_16_22
+# Matrices, Lists, and Data Frames
+
+# chunk 1
+# set seed
+set.seed(90)
+# part 1
+n_dims <- runif(1, 3, 10)
+vec1 <- 1:n_dims^2 # create vector from random numbers
+vec1s <- sample(vec1) # random sample of vector
+mat1 <- matrix(vec1s, 7) # create matrix from sampled vector
+print(mat1)
+mat1t <- t(mat1) # transpose matrix
+print(mat1t)
+
+#chunk 2
+#calculate sum and mean of first row
+var1 <- mat1t[1,]
+sum1 <- sum(var1)
+print(sum1)
+mean1 <- mean(var1)
+print(mean1)
+#calculate sum and mean of last roq
+var2 <- mat1t[7,]
+sum2 <- sum(var2)
+print(sum2)
+mean2 <- mean(var2)
+print(mean2)
+# eigen() function of matrix
+eigen1 <- eigen(mat1t)
+print(eigen1)
+
+# chunk 3
+typeof(eigen1)
+
+# chunk 4
+# part 2
+# set new seed
+set.seed(50)
+vec2 <- runif(16)
+my_matrix <- matrix(vec2, 4, 4) # create matrix from vector
+print(my_matrix)
+
+vec3 <- runif(100, 1, 10)
+my_logical <- vec3 > 5 #create boolean vector
+print(my_logical)
+
+letters1 <- letters # set letters
+my_letters <- sample(letters1) #randomize letters
+
+list1 <- list(my_matrix[2,2], my_logical[2], my_letters[2])
+print(list1)
+typeof(list1[[1]])
+typeof(list1[[2]])
+typeof(list1[[3]])
+vec4 <- c(list1[[1]], list1[[2]], list1[[3]])
+typeof(vec4)
+
+# chunk 5 
+# part 3
+# set seed
+set.seed(20)
+my_unis <- runif(26, 0, 10)
+my_letters2 <- sample(LETTERS)
+df <- data.frame(my_unis, my_letters2)
+print(df)
+df[sample(26,4),1] <- NA
+which(is.na(df[,1]))
+sort(df[,2])
+mean(df[,1], na.rm=TRUE)
