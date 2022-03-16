@@ -1,0 +1,105 @@
+---
+title: "Homework_08"
+author: "David Green"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+When the LATD/NIP gene in *Medicago truncatula* is made inactive the root lengths of the plants are shorter.
+
+The expected primary root lengths of the wild type (A17) plants are 17 cm with a standard deviation of 2. The expected primary root lengths of the mutant (*latd*) plants are 6 cm with a standard deviation of 2.
+
+### Simulation 1
+
+#### Mean: Control = 17, latd = 6
+
+```{r}
+control <- rnorm(n = 28, mean = 17, sd = 2) 
+latd <- rnorm(n = 28, mean = 6, sd = 2)
+df <- data.frame(control, latd)
+t_test <- t.test(latd, control)
+print(t_test)
+boxplot(control, latd, 
+        names = c('Control', 'latd'),
+        ylab = 'Primary Root Length',
+        title = 'Primary root Length: latd vs. Wild')
+```
+
+#### Mean: Control = 17, latd = 10
+
+```{r}
+control <- rnorm(n = 28, mean = 17, sd = 2) 
+latd <- rnorm(n = 28, mean = 10, sd = 2)
+df <- data.frame(control, latd)
+t_test <- t.test(latd, control)
+print(t_test)
+boxplot(control, latd, 
+        names = c('Control', 'latd'),
+        ylab = 'Primary Root Length',
+        title = 'Primary root Length: latd vs. Wild')
+```
+
+#### Mean: Control = 17, latd = 15
+
+```{r}
+control <- rnorm(n = 28, mean = 17, sd = 2) 
+latd <- rnorm(n = 28, mean = 15, sd = 2)
+df <- data.frame(control, latd)
+t_test <- t.test(latd, control)
+print(t_test)
+boxplot(control, latd, 
+        names = c('Control', 'latd'),
+        ylab = 'Primary Root Length',
+        title = 'Primary root Length: latd vs. Wild')
+```
+
+The lowest that I am able to go with the mean of the *latd* group is 15 before I get above a p-value of 0.05.
+
+#### Sample size: 15
+
+```{r}
+control <- rnorm(n = 15, mean = 17, sd = 2) 
+latd <- rnorm(n = 15, mean = 6, sd = 2)
+df <- data.frame(control, latd)
+t_test <- t.test(latd, control)
+print(t_test)
+boxplot(control, latd, 
+        names = c('Control', 'latd'),
+        ylab = 'Primary Root Length',
+        title = 'Primary root Length: latd vs. Wild')
+```
+
+#### Sample size: 5
+
+```{r}
+control <- rnorm(n = 5, mean = 17, sd = 2) 
+latd <- rnorm(n = 5, mean = 6, sd = 2)
+df <- data.frame(control, latd)
+t_test <- t.test(latd, control)
+print(t_test)
+boxplot(control, latd, 
+        names = c('Control', 'latd'),
+        ylab = 'Primary Root Length',
+        title = 'Primary root Length: latd vs. Wild')
+```
+
+#### Sample size: 2
+
+```{r}
+control <- rnorm(n = 2, mean = 17, sd = 2) 
+latd <- rnorm(n = 2, mean = 6, sd = 2)
+df <- data.frame(control, latd)
+t_test <- t.test(latd, control)
+print(t_test)
+boxplot(control, latd, 
+        names = c('Control', 'latd'),
+        ylab = 'Primary Root Length',
+        title = 'Primary root Length: latd vs. Wild')
+```
+
+If I make the sample size 2 I still get a p-value that is below 0.05. 2 Is the lowest that I can go without getting an error in the t.test.
+
+
