@@ -95,9 +95,6 @@ latd <- rnorm(n = 28, mean = 6, sd = 2)
 df <- data.frame(control, latd)
 t_test <- t.test(latd, control)
 print(t_test)
-boxplot(control, latd, 
-        names = c('Control', 'latd'),
-        ylab = 'Primary Root Length',
-        title = 'Primary root Length: latd vs. Wild')
+boxplot(df)
 
 
