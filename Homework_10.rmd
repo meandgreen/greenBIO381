@@ -1,0 +1,107 @@
+---
+title: "Homework_10"
+output: html_document
+author: 'David C. Green'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## 1
+
+```{r}
+
+# ======================================================================
+# FUNCTION findZero
+# Purpose: find zeros in a vector
+# Input: x = vector
+# Output: counter
+# --------------------------------------------------------------------
+findZero <- function(x = NULL) {
+  counter <- 0
+  for(i in seq_along(x)) {
+    if(x[i] == 0) {
+      counter <- counter + 1
+    }
+  }
+  return(counter)
+}
+
+vec_1 <- c(1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0)
+vec_2 <- findZero(vec_1)
+print(vec_2)
+```
+
+## 2
+
+```{r}
+zeros <- length(vec_1[vec_1 == 0])
+print(zeros)
+```
+
+## 3
+
+```{r}
+
+# ======================================================================
+# FUNCTION makeMat
+# Purpose: make a matrix that is the product of the input
+# Input: row = int
+#       col = int
+# Output: matrix
+# --------------------------------------------------------------------
+makeMat <- function(row = runif(1, 0, 10), col = runif(1, 0, 10)) {
+  mat <- matrix(nrow = row, ncol = col)
+  for(i in 1:nrow(mat)) {
+    for(j in 1:ncol(mat)) {
+      mat[i,j] <- i*j
+    }
+  }
+  return(mat)
+}
+
+mat_1 <- makeMat(row = 5, col = 10)
+print(mat_1)
+
+```
+
+## 4
+
+```{r warning=FALSE}
+test <- c(rep('Control', 10), rep('Treatment1', 10), rep('Treatment2', 10))
+resp <- c(runif(10, 0, 3), runif(10, 4, 7), runif(10, 8, 10))
+dat <- data.frame(test, resp)
+
+# ======================================================================
+# FUNCTION shuffleData
+# Purpose: shuffle response variable data
+# Input: data = data frame
+# Output: shuffled data frame
+# --------------------------------------------------------------------
+shuffleData <- function(data = NULL) {
+  newResp <- sample(data$resp)
+  data$resp <- newResp
+  cont <- group_by(data, test)
+  meany <- summarize(cont, mean = mean(resp))
+  means <- c(resp[1], resp[2], resp[3])
+  return(means)
+}
+
+means <- shuffleData(dat)
+print(means)
+
+meanVec <- rep(NA, 100)
+for(i in 1:100) {
+  test <- c(rep('Control', 10), rep('Treatment1', 10), rep('Treatment2', 10))
+  resp <- c(runif(10, 0, 3), runif(10, 4, 7), runif(10, 8, 10))
+  dat <- data.frame(test, resp)
+  meanVec[i] <- shuffleData(dat)
+}
+print(meanVec)
+
+qplot(x = meanVec)
+
+```
+
