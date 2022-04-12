@@ -34,4 +34,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Homework 10](Homework_10.html)
 
+[Homework 11](Homewrok_11.html)
+
 ---
