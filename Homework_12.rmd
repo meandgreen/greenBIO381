@@ -67,3 +67,14 @@ plot3 <- ggplot(df1, aes(x = Sheeva, y = Sental, fill = Corisent)) +
 print(plot3)
 ```
 
+---
+
+I decided to mess around with facetting too
+
+```{r}
+plot4 <- ggplot(table2, aes(x = Treatment, y = LR)) +
+  geom_boxplot()
+print(plot4)
+plot4 + facet_grid(.~Inoculation)
+```
+

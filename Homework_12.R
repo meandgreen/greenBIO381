@@ -48,3 +48,7 @@ plot3 <- ggplot(df1, aes(x = Sheeva, y = Sental, fill = Corisent)) +
   ylab('Sental')
 print(plot3)
 
+plot4 <- ggplot(table2, aes(x = Treatment, y = LR)) +
+  geom_boxplot()
+print(plot4)
+plot4 + facet_grid(.~Inoculation)
